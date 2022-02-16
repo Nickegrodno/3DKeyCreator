@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'KeyCreator.urls'
+ROOT_URLCONF = 'Settings.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'KeyCreator.wsgi.application'
+WSGI_APPLICATION = 'Settings.wsgi.application'
 
 
 # Database
