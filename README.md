@@ -8,4 +8,5 @@
 # setuptools 58.1.0
 # sqlparse   0.4.2
 # tzdata     2021.5
-# yapf       0.32.0
+
+
