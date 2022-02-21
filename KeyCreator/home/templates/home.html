@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+
 
 <html>
   <head>
@@ -16,9 +18,15 @@
 
     <p> Welcome to the Our site</p>
     <div>
+
+
+
+      {% if user.is_authenticated %}
+  <p>Welcome, You are logged in as {{ user.username }}</p>
+  
+{% endif %}
       
 
-    
     </div>
   </body>
 </html>
