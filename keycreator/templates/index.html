@@ -13,6 +13,14 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+            <!--
+                body {
+                    background-image: url({%  static 'house-key.gif' %});
+                    background-repeat: no-repeat;
+                    background-position: center;
+                  }
+    
+            -->
         <style>
             html, body {
                 background-color: #fff;
@@ -70,6 +78,17 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .zoom {
+                padding: 50px;
+                transition: transform .2s;
+                margin: 0 auto;
+            }
+            
+            .zoom:hover {
+                transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+            }
+            
         </style>
     </head>
     <body>
@@ -86,10 +105,13 @@
             <div class="content">
                 <div class="title m-b-md">
                     {% if user.is_authenticated %}
-                        <a href="">3D Key Creator</a>
+                    <div class="zoom">
+                        <a href="#">3D Key Creator</a>
+                    </div>
                     {% else %}
-                        3D Key Creator
+                    3D Key Creator
                     {% endif %}
+
                 </div>
             </div>
         </div>
