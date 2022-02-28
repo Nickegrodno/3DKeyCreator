@@ -1,0 +1,57 @@
+{% load static %}
+{% load socialaccount %}
+
+<html>
+    <head>
+        <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>3D Creator Key</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{%  static 'css/styles.css' %}">
+
+        <!-- Styles -->
+        <style>
+            body {
+                background-image: url({%  static 'background.png' %});
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: .8;
+                background-size: auto;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">  
+            <div class="top-right links">
+                    <p class="shadow">{{ user.email }}</p>
+            </div>
+            <div class="content">
+                <div class="menu m-b-md">
+                    <div class="nav zoom">
+                        <p><a href="#"><img src="{%  static 'icons/menu-key.svg' %}"  alt="" /></a></p>                                
+                        <p class="string"><a href="#">Создание ключа</a></p>
+                    </div>
+                    <div class="nav zoom">
+                        <p><a href="#"><img src="{%  static 'icons/menu-list.svg' %}"  alt="" /></a></p>
+                        <p class="string"><a href="#">Просмотр ключей</a></p>
+                    </div>
+                    <div class="nav zoom">
+                        <p><a href="#"><img src="{%  static 'icons/menu-settings.svg' %}"  alt="" /></a></p>
+                        <p class="string"><a href="#">Настройки</a></p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>       
+        <div>
+            <footer>
+                Copyright &copy; 2022 by Nicke. All Right Reserved.
+            </footer>
+        </div>
+    </body>
+</html>

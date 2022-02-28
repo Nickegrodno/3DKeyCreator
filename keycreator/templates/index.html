@@ -6,7 +6,11 @@
         <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
 
+        
         <title>3D Creator Key</title>
 
         <!-- Fonts -->
@@ -38,7 +42,7 @@
                 <div class="title m-b-md">
                     {% if user.is_authenticated %}
                     <div class="zoom">
-                        <a href="#"><p class="shadow">3D Key Creator</p></a>
+                        <a href="menu/"><p class="shadow">3D Key Creator</p></a>
                     </div>
                     {% else %}
                      3D Key Creator
