@@ -36,7 +36,7 @@
                                 {% if user.is_authenticated %}
                                     <p class="top-right shadow">Здраствуйте, {{ user.username }}!</p>
                                 {% else %}
-                                    <a href="{% provider_login_url 'google' %}">Login</a>
+                                    <a href="{% url 'account_login' %}">Login</a>
                                 {% endif %}
                             </div>
                             {% if user.is_authenticated %}
