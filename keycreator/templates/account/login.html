@@ -5,11 +5,27 @@
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
+{% block common_scripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+  // Load jquery straight from the cdn for this page.
+  $(function() {
+    // We need some mappings for Providers names from AllAuth to the icon class names.
+    $('.btn-google').addClass('btn-google-plus');
+    $('.btn-linkedin_oauth2').addClass('btn-linkedin');
+    $('.fa-linkedin_oauth2').addClass('fa-linkedin');
+    $('#id_login').addClass('form-control').removeAttr('autofocus').blur();
+    $('#id_password').addClass('form-control');
+  });
+</script>
+{% endblock %}
+
 {% block content %}
+
+{% get_providers as socialaccount_providers %}
 
 <h1>{% trans "Sign In" %}</h1>
 
-{% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
@@ -33,28 +49,41 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
-
-
-<div class="container">
-    <div class="row align-items-start">
-      <div class="col">
-        One of three columns
-      </div>
-      <div class="col">
-        One of three columns
-      </div>
-      <div class="col">
-        One of three columns
-      </div>
+<form class="django-login" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %} {% if form.non_field_errors %}
+    <div class="alert alert-warning">
+      <ul class="alert-message">
+        {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <div class="input-group {% if form.login.errors %}has-error{% endif %}">
+      <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+      {{ form.login }}
     </div>
 
+    <div class="input-group {% if form.password.errors %}has-error{% endif %}">
+      <span class="input-group-addon glyphicon glyphicon-lock"></span>
+      {{ form.password }}
+    </div>
+
+    <div class="fieldWrapper form-inline remember text-center">
+      {{ form.remember }}
+      <label for="id_remember" class="text-muted">Remember me</label>
+    </div>
+
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />{% endif %}
+    <div class="btn-div pull-center">
+      <button class="btn btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
+    </div>
+  </form>
+  <hr>
+  <div>
+    <small><a class="text-muted" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></small>
+    <br>
+    <small><a class="text-muted" href="{% url 'account_signup' %}">Sign up</a></small>
+  </div>
   {% endblock %}

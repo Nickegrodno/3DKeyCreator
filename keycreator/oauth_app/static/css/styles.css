@@ -90,3 +90,9 @@ footer {
 .string {
     text-align: center; 
 }
+
+.no-link {
+    outline: 0px;
+    text-decoration: currentColor;
+    cursor: default;
+}

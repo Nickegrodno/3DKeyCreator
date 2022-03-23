@@ -27,8 +27,10 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">  
-            <div class="top-right links">
-                    <p class="shadow">{{ user.email }}</p>
+            <div class="top-right links shadow">
+                <br>
+                <a href="" class="no-link" onclick="return false" >{{ user.email }}</a>
+                <a href="{% url 'account_logout' %}">Выход</a>
             </div>
             <div class="content">
                 <div class="menu m-b-md">

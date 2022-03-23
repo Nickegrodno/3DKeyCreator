@@ -31,20 +31,16 @@
     <body>
 
         <div class="flex-center position-ref full-height">
-                            <div class="top-right links">
+                            <div class="top-right links shadow">
                                 <br>
                                 {% if user.is_authenticated %}
-                                    <p class="top-right shadow">Здраствуйте, {{ user.username }}!</p>
+                                    <a href="" class="no-link" onclick="return false" >Здраствуйте, {{ user.username }}!</a>
+                                    <a href="{% url 'account_logout' %}">Выход</a>
                                 {% else %}
                                     <a href="{% url 'account_login' %}">Login</a>
                                 {% endif %}
+    
                             </div>
-                            {% if user.is_authenticated %}
-                            <div class="top-right links">
-                                <br>
-                                    <p class="top-right shadow"><a href="accounts/logout/">Выход</a></p>
-                            </div>
-                            {% endif %}
                             <div class="content">
                 <div class="title m-b-md">
                     {% if user.is_authenticated %}
