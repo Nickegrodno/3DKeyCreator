@@ -1,0 +1,43 @@
+.form-signin {
+    max-width: 400px;
+    height: 420px;
+    display: block;
+    margin: 0px auto 20px auto;
+      margin-bottom: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    border-bottom: 1px #ccc solid;
+    text-align: center;
+  }
+
+  .mg-btm-singin {
+    margin-bottom: 20px;
+  }
+
+  .signIn {
+    height: auto;
+  }
+
+  .form-signin .heading-desc {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 38px 0px 38px;
+  }
+
+  .row-signin {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .form-signin .social-box {
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .btn-block-singin {
+    padding: 20px 38px 40px 38px;
+  }
+
+  .text-center {
+    text-align: center;
+  }

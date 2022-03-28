@@ -7,39 +7,58 @@
 
 {% block common_scripts %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript">
-  // Load jquery straight from the cdn for this page.
-  $(function() {
-    // We need some mappings for Providers names from AllAuth to the icon class names.
-    $('.btn-google').addClass('btn-google-plus');
-    $('.btn-linkedin_oauth2').addClass('btn-linkedin');
-    $('.fa-linkedin_oauth2').addClass('fa-linkedin');
-    $('#id_login').addClass('form-control').removeAttr('autofocus').blur();
-    $('#id_password').addClass('form-control');
-  });
-</script>
+
 {% endblock %}
 
 {% block content %}
 
 {% get_providers as socialaccount_providers %}
 
-<h1>{% trans "Sign In" %}</h1>
-
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
-<div class="socialaccount_ballot">
+{% if form.non_field_errors %}
+    <div class="">
+      <ul class="">
+        {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+{% endif %}
 
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
+<div class="container">
+    <div class="col-md-12">
+        <div class="form-signin signIn mg-btm-singin">
+            <h3 class="heading-desc">Login to your dashboard</h3>
+            <div class="social-box">
+                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </div>
+            <div class="row-signin">
+                <h3 class="heading-desc">or</h3>
+            </div>
+            <div class="row-signin">
+                <form class="django-login" method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    <div class="row-signin {% if form.login.errors %}has-error{% endif %}">
+                      <span class="input-group-addon glyphicon glyphicon-envelope"></span>
+                      {{ form.login }}
+                    </div>
+                
+                    <div class="row-signin {% if form.password.errors %}has-error{% endif %}">
+                      <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                      {{ form.password }}
+                    </div>
+               
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />{% endif %}
+                    <div class="btn-div pull-center btn-block-singin">
+                      <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% include "socialaccount/snippets/login_extra.html" %}
@@ -49,39 +68,8 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="django-login" method="POST" action="{% url 'account_login' %}">
-    {% csrf_token %} {% if form.non_field_errors %}
-    <div class="alert alert-warning">
-      <ul class="alert-message">
-        {% for error in form.non_field_errors %}
-        <li>{{ error }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-    <div class="input-group {% if form.login.errors %}has-error{% endif %}">
-      <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-      {{ form.login }}
-    </div>
-
-    <div class="input-group {% if form.password.errors %}has-error{% endif %}">
-      <span class="input-group-addon glyphicon glyphicon-lock"></span>
-      {{ form.password }}
-    </div>
-
-    <div class="fieldWrapper form-inline remember text-center">
-      {{ form.remember }}
-      <label for="id_remember" class="text-muted">Remember me</label>
-    </div>
-
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />{% endif %}
-    <div class="btn-div pull-center">
-      <button class="btn btn-primary btn-block" type="submit">{% trans "Sign In" %}</button>
-    </div>
-  </form>
-  <hr>
-  <div>
+ 
+  <div class="text-center">
     <small><a class="text-muted" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></small>
     <br>
     <small><a class="text-muted" href="{% url 'account_signup' %}">Sign up</a></small>
