@@ -45,3 +45,7 @@ html, body {
   .text-center {
     text-align: center;
   }
+
+  .colorGray {
+      background-color: #595959;
+  }

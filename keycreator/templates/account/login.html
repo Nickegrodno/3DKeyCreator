@@ -26,16 +26,18 @@
       </ul>
     </div>
 {% endif %}
-
+<br><br>
 <div class="container">
-    <div class="col-md-12">
+    <div class="col-md-12 text-center">
         <div class="form-signin signIn mg-btm-singin">
             <h3 class="heading-desc">Login to your dashboard</h3>
+            <br>
             <div class="social-box">
                 {% include "socialaccount/snippets/provider_list.html" with process="login" %}
             </div>
             <div class="row-signin">
                 <h3 class="heading-desc">or</h3>
+                <br>
             </div>
             <div class="row-signin">
                 <form class="django-login" method="POST" action="{% url 'account_login' %}">
@@ -53,6 +55,7 @@
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />{% endif %}
                     <div class="btn-div pull-center btn-block-singin">
+                        <br>
                       <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
                     </div>
                   </form>

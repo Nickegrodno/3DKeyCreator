@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s158m*xr3+x+&zn(3k$b)c%b-4^xq(vt5gzd(=$qjxp#plb6i_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -128,11 +129,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
 ]
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+# PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))#os.path.join( os.path.dirname(os.path.abspath(__file__)), '..' )
+# MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+# MEDIA_URL = '/media/'  # URL для медии в шаблонах
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
