@@ -18,6 +18,10 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LogoutView
 
+from django.conf.urls import (
+handler400, handler403, handler404, handler500
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ("menu/", include("oauth_app.urls")),
@@ -25,3 +29,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('logout', LogoutView.as_view()),
 ]
+
+handler400 = 'oauth_app.views.handler404'

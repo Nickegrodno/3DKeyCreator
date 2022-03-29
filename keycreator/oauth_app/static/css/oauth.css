@@ -1,3 +1,7 @@
+html, body {
+    background-color: #595959;
+}
+
 .form-signin {
     max-width: 400px;
     height: 420px;

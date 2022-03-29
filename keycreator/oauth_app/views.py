@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 #from allauth.account.decorators import verified_email_required
+from django.template import RequestContext
 
 # Create your views here.
 
@@ -13,3 +14,10 @@ def menu(request) :
 @login_required(login_url="")
 def category(request) :
     return render(request, "category.html")
+
+
+# HTTP Error 400
+def handler404(request, exception, template_name="404.html"):
+    response = render(template_name)
+    response.status_code = 404
+    return response
