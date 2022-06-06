@@ -151,6 +151,9 @@ DATABASES = {
     }
 }
 
+# social auth configs for google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '730651289296-4sre2fpkkhjedtvm2akjop5pglgcd0pb.apps.googleusercontent.comY'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

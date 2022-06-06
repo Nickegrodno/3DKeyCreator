@@ -15,6 +15,9 @@ def menu(request) :
 def category(request) :
     return render(request, "category.html")
 
+@login_required(login_url="")
+def leverkey(request) :
+    return render(request, "leverkey.html")
 
 # HTTP Error 400
 def handler404(request, exception, template_name="404.html"):
