@@ -31,21 +31,13 @@
             <div class="top-right links shadow">
                 <br>
                 <a href="" class="no-link" onclick="return false" >{{ user.email }}</a>
-                <a href="{% url 'account_logout' %}">Выход</a>
+                <a href="../../menu">Назад</a>
             </div>
             <div class="content">
                 <div class="menu m-b-md">
-                    <div class="nav zoom">
-                        <p><a href="category/"><img src="{%  static 'icons/menu-key.svg' %}"  alt="" /></a></p>                                
-                        <p class="string"><a href="category/">Создание ключа</a></p>
-                    </div>
-                    <div class="nav zoom">
-                        <p><a href="#"><img src="{%  static 'icons/menu-list.svg' %}"  alt="" /></a></p>
-                        <p class="string"><a href="#">Просмотр ключей</a></p>
-                    </div>
-                    <div class="nav zoom">
-                        <p><a href="sett/"><img src="{%  static 'icons/menu-settings.svg' %}"  alt="" /></a></p>
-                        <p class="string"><a href="#">Настройки</a></p>
+                    <div class="nav zoom">                         
+                        <p><a href="/accounts/password/change/"><img src="{%  static 'icons/password-change.svg' %}"  alt="" /></a></p>    
+                        <p class="string"><a href="/accounts/password/change/">Изменение пароля</a></p>
                     </div>
                 </div>
             </div>

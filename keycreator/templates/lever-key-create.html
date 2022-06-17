@@ -1,0 +1,139 @@
+{% load static %}
+{% load socialaccount %}
+
+<head>
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    
+    <title>3D Creator Key</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="{%  static 'css/keylist.css' %}">
+
+    <!-- Styles -->
+    <style>
+    </style>
+</head>
+<body>
+    <div class="shadow">
+        <h3> Укажите типоразмеры: </h3>
+    </div>
+    <form name="myForm" class="center">
+
+        <select name="language0">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <select name="language1">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <select name="language3">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <select name="language4">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <select name="rigel" disabled>
+            <option value="R" selected="selected">R</option>
+        </select>
+
+        <select name="language0">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <select name="language1">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <select name="language3">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <select name="language4">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+    </form>
+
+    <div id="selection"></div>
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.83 70" width="400" height="400"><defs><style>.cls-1{fill:#fff;stroke:#231f20;stroke-miterlimit:10;}</style></defs><title>Untitled-2</title><rect class="cls-1" x="0.5" y="30.68" width="116.83" height="6.29"/><rect class="cls-1" x="5.5" y="18.67" width="9.33" height="50.83"/><rect class="cls-1" x="14.83" y="11.67" width="9.33" height="51.5"/><rect class="cls-1" x="24.17" y="5.67" width="9.33" height="51.5"/><rect class="cls-1" x="33.5" y="0.5" width="9.33" height="62.67"/><rect class="cls-1" x="55.17" y="5.67" width="9.33" height="63.83"/><rect class="cls-1" x="64.5" y="11.67" width="9.33" height="51.5"/><rect class="cls-1" x="73.83" y="5.67" width="9.33" height="51.5"/><rect class="cls-1" x="83.17" y="0.5" width="9.33" height="49"/><rect class="cls-1" x="42.83" y="0.5" width="12.33" height="69"/></svg>
+    <canvas id="canvas" width="300" height="300">
+        Извините, ваш браузер нет поддерживает&lt;canvas&gt; элемент.
+        
+    </canvas>
+
+    <script>
+    var languagesSelect = myForm.language;
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+
+
+    function changeOption(){
+         
+        var selection = document.getElementById("selection");
+        var selectedOption = languagesSelect.options[languagesSelect.selectedIndex];
+        selection.textContent = "Вы выбрали: " + selectedOption.text;
+        if (selectedOption.text == "2") {    
+            ctx.beginPath();
+            ctx.arc(75,75,50,0,Math.PI*2,true); // Внешняя окружность
+            ctx.moveTo(110,75);
+            ctx.arc(75,75,35,0,Math.PI,false);  // рот (по часовой стрелке)
+            ctx.moveTo(65,65);
+            ctx.arc(60,65,5,0,Math.PI*2,true);  // Левый глаз
+            ctx.moveTo(95,65);
+            ctx.arc(90,65,5,0,Math.PI*2,true);  // Правый глаз
+            ctx.stroke();    
+        }
+    }
+     
+    languagesSelect.addEventListener("change", changeOption);
+    </script>
+      
+
+
+</body>
+
+<footer>
+
+    <div class="back-button links shadow">
+        <a href="../../category/"> Скачать </a>
+        <a href="../../category/"> Назад </a>
+    </div>
+
+</footer>
+
+</html>

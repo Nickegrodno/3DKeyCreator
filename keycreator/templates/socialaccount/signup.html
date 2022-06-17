@@ -5,11 +5,17 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "Sign Up" %}</h1>
 
+<div class="d-flex justify-content-center">
+<h1>{% trans "Sign Up" %}</h1>
+</div>
+
+<div class="d-flex justify-content-center">
 <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
 {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+</div>
 
+<div class="d-flex justify-content-center">
 <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
@@ -18,5 +24,6 @@
   {% endif %}
   <button type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
+</div>
 
 {% endblock %}

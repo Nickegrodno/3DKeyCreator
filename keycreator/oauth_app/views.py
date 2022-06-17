@@ -16,8 +16,20 @@ def category(request) :
     return render(request, "category.html")
 
 @login_required(login_url="")
+def sett(request) :
+    return render(request, "sett.html")
+
+@login_required(login_url="")
 def leverkey(request) :
     return render(request, "leverkey.html")
+
+@login_required(login_url="")
+def pinkey(request) :
+    return render(request, "pinkey.html")
+
+@login_required(login_url="")
+def leverkeycreate(request) :
+    return render(request, "lever-key-create.html")
 
 # HTTP Error 400
 def handler404(request, exception, template_name="404.html"):

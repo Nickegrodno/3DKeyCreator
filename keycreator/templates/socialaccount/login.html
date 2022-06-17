@@ -7,13 +7,18 @@
 
 <p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
 {% else %}
+<div class="d-flex justify-content-center">
 <h1>{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h1>
-
+</div>
+<div class="d-flex justify-content-center">
 <p>{% blocktrans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endblocktrans %}</p>
+</div>
 {% endif %}
 
+<div class="d-flex justify-content-center">
 <form method="post">
   {% csrf_token %}
   <button type="submit">{% trans "Continue" %}</button>
 </form>
+</div>
 {% endblock %}

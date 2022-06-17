@@ -22,9 +22,11 @@
       </ul>
     </div>
     {% endif %}
-
-    <div>
-      <strong>Menu:</strong>
+    <br><br>
+    <div class="d-flex justify-content-center">
+    <strong>Menu:</strong>
+    </div>
+    <div class="d-flex justify-content-center">
       <ul>
         {% if user.is_authenticated %}
         <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
